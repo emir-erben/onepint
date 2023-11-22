@@ -76,7 +76,7 @@
   width: 5vw;
   position: absolute;
   z-index: -1;
-  filter: blur(40px);
+  filter: blur(20px);
 }
 
 @keyframes gradient_anim {
