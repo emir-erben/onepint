@@ -93,15 +93,7 @@ export default function Home() {
             Every week
           </div>
           <div className={`${styles.container_button}`}>
-            {/* <button className={`${styles.button}`}>Apply now</button> */}
             <Link href={''}>Apply now</Link>
-            <motion.button
-  whileHover={{
-    scale: 1.2,
-    transition: { duration: 1 },
-  }}
-  whileTap={{ scale: 0.9 }}
-/>
           </div>
         </div>
         <div className={`${styles.animated_gradient}`}></div>
