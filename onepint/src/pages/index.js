@@ -84,7 +84,7 @@ export default function Home() {
             Meet someone cool
           </div>
           <div className={`${styles.container}`}>
-            For a pint
+            Over a pint
           </div>
           <div className={`${styles.container}`}>
             In a new bar

@@ -15,38 +15,6 @@
   font-size: 42px;
   height: 500px;
   overflow-y: auto;
-
-}
-
-.animated_gradient {
-  background: linear-gradient(90deg, #0062ff, #FBB117);
-  background-size: 400% 400%;
-  animation: gradient_anim 10s ease infinite;
-  height: 40vh;
-  width: 5vw;
-  position: absolute;
-  z-index: -1;
-  filter: blur(40px);
-}
-
-@keyframes gradient_anim {
-  0% {
-    background-position: 0% 50%;
-    height: 20vh;
-    width: 20px;
-  }
-  50% {
-    
-    background-position: 100% 50%;
-    height: 60vh;
-    width: 200px;
-    
-  }
-  100% {
-    background-position: 0% 50%;
-    height: 20vh;
-    width: 20px;
-  }
 }
 
 .container,
@@ -82,6 +50,56 @@
   font-size: 24px;
   font-family: 'Roobert';
 }
+
+@media (max-width: 700px) {
+  .title {
+    font-size: 32px;
+  }
+  .container{
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+
+
+}
+
+.animated_gradient {
+  background: linear-gradient(90deg, #0062ff, #FBB117);
+  background-size: 400% 400%;
+  animation: gradient_anim 10s ease infinite;
+  height: 40vh;
+  width: 5vw;
+  position: absolute;
+  z-index: -1;
+  filter: blur(40px);
+}
+
+@keyframes gradient_anim {
+  0% {
+    background-position: 0% 50%;
+    height: 20vh;
+    width: 20px;
+  }
+  50% {
+    
+    background-position: 100% 50%;
+    height: 60vh;
+    width: 200px;
+    
+  }
+  100% {
+    background-position: 0% 50%;
+    height: 20vh;
+    width: 20px;
+  }
+}
+
+
 
 .description {
   display: inherit;
