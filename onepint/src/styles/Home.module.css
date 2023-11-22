@@ -67,6 +67,7 @@
   }
   .main {
     padding: 6rem 1rem;
+    max-height: 100vh;
   }
 
 
