@@ -28,6 +28,7 @@
   overflow-y: auto;
   visibility: visible;
   padding: 50px;
+  text-align: center;
 }
 
 .container_button :hover {
@@ -55,16 +56,6 @@
   .title {
     font-size: 32px;
   }
-  .container{
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  .main {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
-
 
 }
 
@@ -77,6 +68,8 @@
   position: absolute;
   z-index: -1;
   filter: blur(40px);
+  transform: translate3d(0, 0, 0);
+
 }
 
 @keyframes gradient_anim {
