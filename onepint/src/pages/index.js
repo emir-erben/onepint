@@ -7,6 +7,8 @@ import styles from '@/styles/Home.module.css';
 import Link from 'next/link';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import RequiredTextField from '../components/formFields';
+
 
 
 const inter = Inter({ subsets: ['latin'] });
@@ -81,6 +83,7 @@ export default function Home() {
             className={`${styles.container}`}
           >
             <Link href={''}>Apply now</Link>
+            
           </motion.div>
           {/* <div className={`${styles.container}`}>
             Over a pint
