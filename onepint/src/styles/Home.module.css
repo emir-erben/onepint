@@ -70,9 +70,6 @@
     max-height: 100vh;
     overflow: hidden;
   }
-  .title {
-    overflow-y: scroll;
-  }
 
 }
 
