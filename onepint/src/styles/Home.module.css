@@ -67,8 +67,11 @@
   }
   .main {
     padding: 6rem 1rem;
-    max-height: 90vh;
+    max-height: 100vh;
     overflow: hidden;
+  }
+  .title {
+    overflow-y: scroll;
   }
 
 }
