@@ -8,7 +8,6 @@ const RequiredTextField = ({ placeholder, name }) => {
     return (
         <>
         <input type='text' name={name} placeholder={placeholder} required className={`${styles.inputfield  || ""}`}/>
-        <div className={`${styles.inputfield}`}>Hello</div>
         </>
     );
 };
