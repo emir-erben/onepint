@@ -37,6 +37,7 @@
   background-clip: text;
   -webkit-background-clip: text;
   animation: move-bg 18s infinite linear;
+  transform: translate3d(0, 0, 0);
 }
 
 @keyframes move-bg {
