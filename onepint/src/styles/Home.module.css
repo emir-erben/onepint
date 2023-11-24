@@ -26,7 +26,6 @@
   --bg-size: 400%;
   --color-one: hsl(40 95% 55%);
   --color-two: hsl(0 0% 0%);
-  font-size: clamp(3rem, 2.5rem, 8rem); /* Change this line */
   background: linear-gradient(
                 90deg,
                 var(--color-one),
@@ -99,7 +98,25 @@
     overflow: hidden;
   }
   .button{
-    font-size: 32px !important;
+    font-size: 32px;
+    text-transform: none;
+  color: white;
+  font-family: 'Roobert';
+  text-decoration: underline;
+  --bg-size: 400%;
+  --color-one: hsl(40 95% 55%);
+  --color-two: hsl(0 0% 0%);
+  background: linear-gradient(
+                90deg,
+                var(--color-one),
+                var(--color-two),
+                var(--color-one)
+              ) 0 0 / var(--bg-size) 100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: move-bg 18s infinite linear;
+  transform: translate3d(0, 0, 0);
   }
  
 
