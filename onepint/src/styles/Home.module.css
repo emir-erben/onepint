@@ -98,25 +98,25 @@
     overflow: hidden;
   }
   .button{
-    font-size: 32px;
-    text-transform: none;
-  color: white;
-  font-family: 'Roobert';
-  text-decoration: underline;
-  --bg-size: 400%;
-  --color-one: hsl(40 95% 55%);
-  --color-two: hsl(0 0% 0%);
+    font-size: 32px !important;
+    text-transform: none !important;
+  color: white !important;
+  font-family: 'Roobert' !important;
+  text-decoration: underline  !important;
+  --bg-size: 400% !important;
+  --color-one: hsl(40 95% 55%) !important;
+  --color-two: hsl(0 0% 0%) !important;
   background: linear-gradient(
                 90deg,
                 var(--color-one),
                 var(--color-two),
                 var(--color-one)
-              ) 0 0 / var(--bg-size) 100%;
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  animation: move-bg 18s infinite linear;
-  transform: translate3d(0, 0, 0);
+              ) 0 0 / var(--bg-size) 100% !important;
+  color: transparent !important;
+  background-clip: text   !important;
+  -webkit-background-clip: text  !important;
+  animation: move-bg 18s infinite linear !important;
+  transform: translate3d(0, 0, 0) !important;
   }
  
 
