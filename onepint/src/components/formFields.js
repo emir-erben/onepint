@@ -4,10 +4,10 @@ import { text, field } from 'react';
 // Import the 'text' module from the 'react' package
 
 
-const RequiredTextField = ({ placeholder, name }) => {
+const RequiredTextField = ({ placeholder, answer }) => {
     return (
         <>
-        <input type='text' name={name} placeholder={placeholder} required className={`${styles.inputfield  || ""}`}/>
+        <input type='text' value={answer} placeholder={placeholder} required className={`${styles.inputfield  || ""}`}/>
         </>
     );
 };
