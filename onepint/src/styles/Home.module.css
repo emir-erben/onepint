@@ -52,6 +52,7 @@
 .formContainer{
   position: absolute;
   z-index: -1;
+  width: 50%;
 }
 .showForm {
   opacity: 1;
@@ -165,22 +166,25 @@
   margin-top: 40px;
   font-size: 24px;
   border-radius: 20px;
-
+  color: white;
+  border-color: none;
   --bg-size: 400% !important;
   --color-one: hsl(40 95% 55%);
   --color-two: hsl(0, 0%, 0%);
-  background: linear-gradient(
+  background-color: #0062ff;
+  /* background: linear-gradient(
                 90deg,
                 var(--color-one),
                 var(--color-two),
                 var(--color-one)
               ) 0 0 / var(--bg-size) 100%;
-  /* animation: move-bg 18s infinite linear !important; */
+  animation: move-bg 18s infinite linear !important; */
   transform: translate3d(0, 0, 0) !important;
 }
 
 .grayButton{
   background: none;
+  color: gray;
   background-color: rgb(16, 16, 16);
   opacity: 0.2;
   border: black;
@@ -232,7 +236,9 @@
   .selectField{
     font-size: 18px;
   }
-
+  .formContainer{
+    width: 100%;
+  }
  
 
 }
