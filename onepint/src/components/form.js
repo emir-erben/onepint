@@ -21,9 +21,14 @@ const Form = () => {
     const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
     const router = useRouter();
 
+    const isFormIncomplete = !name || !email || !company || !uni || !info || !city;
+    const submitButtonClassName = `${styles.submitButton} ${isFormIncomplete ? styles.grayButton : ''}`;
+ 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+        
+        
         // Check if email is already used
         const { data, error } = await supabase
             .from('responses')
@@ -90,26 +95,31 @@ const Form = () => {
             
             <RequiredTextField
                 placeholder="Something interesting about you"
-                value={email}
+                value={info}
                 onChange={(e) => setInfo(e.target.value)}
             />
-            <FormControl fullWidth>
-                <InputLabel className={`${styles.selectField || ""}`}>City</InputLabel>
+            <RequiredTextField
+                placeholder="City"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+            />
+            {/* <FormControl fullWidth>
+                <InputLabel className={`${styles.containerField || ""}`}>City</InputLabel>
                 <Select
                     className={`${styles.selectField || ""}`}
-                    className={`${styles.selectField || ""}`}
+                    id="selectLabel"
                     value={city}
                     label="City"
                     onChange={(e) => setCity(e.target.value)}
                 >
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
+                    <MenuItem value={10}>New York</MenuItem>
+                    <MenuItem value={20}>London</MenuItem>
                     <MenuItem value={30}>Thirty</MenuItem>
                 </Select>
-            </FormControl>
-            <button type="submit">Submit</button>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
+            </FormControl> */}
+            <button type="submit" className={submitButtonClassName}>Submit</button>
+            {error && <p className={`${styles.submitFeedback}`} style={{ color: 'red' }}>{error}</p>}
+            {successMessage && <p className={`${styles.submitFeedback}`} style={{ color: 'green' }}>{successMessage}</p>}
 
         </form>
     );
