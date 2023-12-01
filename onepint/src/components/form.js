@@ -20,6 +20,7 @@ const Form = () => {
     const [city, setCity] = useState('');
     const [error, setError] = useState(null);
     const [successMessage, setSuccessMessage] = useState('');
+    const [selectedImageURL, setSelectedImageURL] = useState('');
     const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
     const router = useRouter();
 
@@ -40,6 +41,8 @@ const Form = () => {
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         setImage(file);
+        setSelectedImageURL(URL.createObjectURL(file));
+        console.log(URL.createObjectURL(file));
     };
     
     const handleSubmit = async (e) => {
@@ -154,6 +157,9 @@ const Form = () => {
 
             {step === 2 && (
                 <>
+                    <button className={`${styles.backButton}`} type="button" onClick={handleBack}>
+                        &larr;
+                    </button>
                     <RequiredTextField
                         placeholder="Something interesting about you"
                         value={info}
@@ -161,11 +167,14 @@ const Form = () => {
                     />
                      <Button variant="contained" component="label">
                         Upload Image
-                        <input type="file" onChange={handleFileChange} />
+                        <input type="file" hidden onChange={handleFileChange} />
                     </Button>
-                    <button type="button" onClick={handleBack}>
-                        Back
-                    </button>
+                    {selectedImageURL && (
+                        <div>
+                            <p>Selected Image:</p>
+                            <img src={selectedImageURL} alt="Selected" style={{ maxWidth: '100%' }} />
+                        </div>
+                    )}
                     <button type="submit" className={submitButtonClassName}>
                         Submit
                     </button>

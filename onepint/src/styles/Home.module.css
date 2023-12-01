@@ -295,6 +295,20 @@
   opacity: 1; /* Make the text visible when the additional text is expanded */
 }
 
+.backButton {
+  position: absolute;
+  left: -50px;
+  top: -100px;
+
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 2em;
+  color: gray;
+
+}
+
 @media (max-width: 700px) {
   .title {
     font-size: 32px;
