@@ -5,6 +5,8 @@ import RequiredTextField from '../components/formFields';
 import { useRouter } from 'next/router';
 import getConfig from 'next/config';
 import { Button } from '@mui/material';
+import Selector from './selector'; // Import the new component
+
 
 const { publicRuntimeConfig } = getConfig();
 const { SUPABASE_URL, SUPABASE_KEY } = publicRuntimeConfig;
@@ -17,17 +19,30 @@ const Form = () => {
     const [company, setCompany] = useState('');
     const [info, setInfo] = useState('');
     const [uni, setUni] = useState('');
+    const [age, setAge] = useState('');
     const [city, setCity] = useState('');
+    const [interests, setInterests] = useState([]);
     const [error, setError] = useState(null);
     const [successMessage, setSuccessMessage] = useState('');
     const [selectedImageURL, setSelectedImageURL] = useState('');
     const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
     const router = useRouter();
 
-    const isFormIncomplete = !name || !email || !company || !uni || !info || !city;
-    const isStepOneIncomplete = !name || !email || !company || !uni || !city;
+    const isFormIncomplete = !name || !email || !company || !uni || !info || !city || !age || !image || !interests;
+    const isStepOneIncomplete = !name || !email || !company || !uni || !city || !age;
     const nextButtonClassName = `${styles.nextButton} ${isStepOneIncomplete ? styles.grayButton : ''}`;
     const submitButtonClassName = `${styles.submitButton} ${isFormIncomplete ? styles.grayButton : ''}`;
+
+    const options = ['Design', 'Formula 1', 'investing', 'Photography', 'soccer', 'Sports',
+    'Startups',
+    'Marketing',
+    'Gaming',
+    'Travel',
+    'Cooking',
+    'Music',
+    'DJing',]; // Add more options as needed
+
+    const cities = ['New York', 'London', 'Istanbul', 'Lisbon', 'Other']; // Add more cities as needed
 
     const handleNext = () => {
         setStep(step + 1);
@@ -44,6 +59,19 @@ const Form = () => {
         setSelectedImageURL(URL.createObjectURL(file));
         console.log(URL.createObjectURL(file));
     };
+    
+    const handleInterestChange = (interest) => {
+        const updatedInterests = interests.includes(interest)
+        ? interests.filter((selectedInterest) => selectedInterest !== interest)
+        : [...interests, interest];
+    
+        setInterests(updatedInterests);
+      };
+
+    const handleCityChange = (selectedCity) => {
+        setCity(selectedCity);
+    };
+
     
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -98,7 +126,7 @@ const Form = () => {
     
             const { error: saveError } = await supabase
                 .from('responses')
-                .insert([{ email, name, uni, company, info, city, image: imageUrl }]);
+                .insert([{ email, name, age, uni, company, info, city, image: imageUrl, interests }]);
     
             if (saveError) {
                 console.error('Error saving response:', saveError.message);
@@ -116,7 +144,7 @@ const Form = () => {
     
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className={`${styles.formStyle}`} onSubmit={handleSubmit}>
             {step === 1 && (
                 <>
                     <RequiredTextField
@@ -140,10 +168,11 @@ const Form = () => {
                         onChange={(e) => setUni(e.target.value)}
                     />
                     <RequiredTextField
-                        placeholder="City"
-                        value={city}
-                        onChange={(e) => setCity(e.target.value)}
+                        placeholder="Age"
+                        value={age}
+                        onChange={(e) => setAge(e.target.value)}
                     />
+                    <Selector label="City" options={cities} selectedValues={[city]} onSelect={handleCityChange} />
                     <button
                         type="button"
                         className={nextButtonClassName}
@@ -157,22 +186,21 @@ const Form = () => {
 
             {step === 2 && (
                 <>
-                    <button className={`${styles.backButton}`} type="button" onClick={handleBack}>
-                        &larr;
-                    </button>
+                    <Selector label="Interests" options={options} selectedValues={interests} onSelect={handleInterestChange} />
+
                     <RequiredTextField
                         placeholder="Something interesting about you"
                         value={info}
                         onChange={(e) => setInfo(e.target.value)}
                     />
-                     <Button variant="contained" component="label">
+                    <Button variant="contained" style={{backgroundColor:'transparent', marginTop:'50px', border:'1px solid white', borderRadius:'10px'}} component="label">
                         Upload Image
                         <input type="file" hidden onChange={handleFileChange} />
                     </Button>
                     {selectedImageURL && (
                         <div>
-                            <p>Selected Image:</p>
-                            <img src={selectedImageURL} alt="Selected" style={{ maxWidth: '100%' }} />
+                            <p style={{paddingTop: '10px', paddingBottom: '10px'}}>Selected Image:</p>
+                            <img src={selectedImageURL} alt="Selected" />
                         </div>
                     )}
                     <button type="submit" className={submitButtonClassName}>
@@ -188,6 +216,9 @@ const Form = () => {
                             {successMessage}
                         </p>
                     )}
+                    <button className={`${styles.backButton}`} type="button" onClick={handleBack}>
+                        Back
+                    </button>
                 </>
             )}
         </form>
