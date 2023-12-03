@@ -42,7 +42,7 @@ const Form = () => {
     'Music',
     'DJing',]; // Add more options as needed
 
-    const cities = ['New York', 'London', 'Istanbul', 'Lisbon', 'Other']; // Add more cities as needed
+    const cities = ['New York', 'London', 'Other']; // Add more cities as needed
 
     const handleNext = () => {
         setStep(step + 1);
@@ -199,8 +199,8 @@ const Form = () => {
                     </Button>
                     {selectedImageURL && (
                         <div>
-                            <p style={{paddingTop: '10px', paddingBottom: '10px'}}>Selected Image:</p>
-                            <img src={selectedImageURL} alt="Selected" />
+                            <p style={{paddingTop: '10px', paddingBottom: '10px', color: '#66ca66'}}>Image successfully added!</p>
+                            {/* <img src={selectedImageURL} alt="Selected" /> */}
                         </div>
                     )}
                     <button type="submit" className={submitButtonClassName}>
@@ -226,3 +226,4 @@ const Form = () => {
 };
 
 export default Form;
+
