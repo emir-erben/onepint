@@ -399,7 +399,9 @@ margin-block-start: 100px;
   .selectField{
     font-size: 18px;
   }
-
+  .formContainer{
+    width: 100%;
+  }
   .successMain{
     padding: 3rem;
     min-height: 100vh;
