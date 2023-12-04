@@ -353,7 +353,8 @@ margin-block-start: 100px;
   display: inline-block;
   text-align: left;
   width: 100%;
-  padding-bottom: 1rem;
+  padding-top: 20px;
+  padding-bottom: 20px;
   color: gray;  
 }
 
@@ -419,7 +420,9 @@ margin-block-start: 100px;
   .faqQuestion h3{
     font-size: 24px;
   }
-    
+  .questionText{
+    font-size: 18px;
+  }
   .additionalText {
     font-size: 18px;
   }

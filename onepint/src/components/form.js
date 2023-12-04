@@ -172,7 +172,9 @@ const Form = () => {
                         value={age}
                         onChange={(e) => setAge(e.target.value)}
                     />
-                    <Selector label="City" options={cities} selectedValues={[city]} onSelect={handleCityChange} />
+                    <div  style={{paddingLeft: '10px'}}>
+                    <Selector label="City" options={cities} selectedValues={[city]} onSelect={handleCityChange}/>
+                    </div>
                     <button
                         type="button"
                         className={nextButtonClassName}
@@ -185,9 +187,10 @@ const Form = () => {
             )}
 
             {step === 2 && (
-                <>
+                <>  
+                    <div  style={{paddingLeft: '10px'}}>
                     <Selector label="Interests" options={options} selectedValues={interests} onSelect={handleInterestChange} />
-
+                    </div>
                     <RequiredTextField
                         placeholder="Something interesting about you"
                         value={info}

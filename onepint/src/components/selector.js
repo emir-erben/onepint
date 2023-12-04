@@ -4,7 +4,7 @@ import styles from '@/styles/Home.module.css';
 const Selector = ({ label, options, selectedValues, onSelect }) => {
   return (
     <div >
-      <p className={styles.questionText}>Select your {label.toLowerCase()}:</p>
+      <p className={styles.questionText}> {label}:</p>
       <div className={styles.selector}>
         {options.map((option) => (
           <label key={option} className={selectedValues.includes(option) ? styles.selectedOption : ''}>
